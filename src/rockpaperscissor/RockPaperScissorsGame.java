@@ -6,10 +6,12 @@ public class RockPaperScissorsGame {
 
     private final Player playerA;
     private final Player playerB;
+    private final int endAtScore;
 
-    RockPaperScissorsGame(Player playerA, Player playerB){
+    RockPaperScissorsGame(Player playerA, Player playerB, int firstToScore){
         this.playerA = playerA;
         this.playerB = playerB;
+        this.endAtScore = firstToScore;
     }
     public void run() {
         do {
@@ -18,9 +20,22 @@ public class RockPaperScissorsGame {
 
             printRound(round);
             printScore();
-        } while (userWantsToPlay());
+
+        } while (!hasReachedEndScore() && userWantsToPlay());
+
+        if(playerA.getScore() == playerB.getScore()) {
+            System.out.println("Game ends in a draw!");
+        } else if(playerA.getScore() > playerB.getScore()) {
+            System.out.printf("%s wins with a score of %s\n", playerA.getName(), playerA.getScore());
+        } else {
+            System.out.printf("%s wins with a score of %s\n", playerB.getName(), playerB.getScore());
+        }
 
         System.out.println("Bye!");
+    }
+
+    private boolean hasReachedEndScore() {
+        return (playerA.getScore() == endAtScore) || (playerB.getScore() == endAtScore);
     }
 
     private void printScore() {

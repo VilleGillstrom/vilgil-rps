@@ -6,7 +6,7 @@ public class Main {
 
         Player playerA = new PlayerHuman("Human", 0);
         Player playerB = new PlayerAI("AI", 0);
-        RockPaperScissorsGame game = new RockPaperScissorsGame(playerA, playerB);
+        RockPaperScissorsGame game = new RockPaperScissorsGame(playerA, playerB, 3);
 
         game.run();
     }
