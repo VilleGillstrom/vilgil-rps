@@ -1,7 +1,7 @@
 package rockpaperscissor;
 
-public class AIPlayer extends Player {
-    AIPlayer(String name, int score) {
+public class PlayerAI extends Player {
+    PlayerAI(String name, int score) {
         super(name, score);
     }
 

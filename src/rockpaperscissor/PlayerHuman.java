@@ -3,9 +3,9 @@ package rockpaperscissor;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class HumanPlayer extends Player {
+public class PlayerHuman extends Player {
 
-    HumanPlayer(String name, int score) {
+    PlayerHuman(String name, int score) {
         super(name, score);
     }
 
@@ -13,18 +13,17 @@ public class HumanPlayer extends Player {
     public Fist makeFist() {
         Scanner scanner = new Scanner(System.in);
         Fist userChoice = null;
-        boolean hasValidGuess = false;
-        while (!hasValidGuess) {
+        do {
             System.out.print("Rock, Paper, Scissors: ");
             try {
                 String choiceAsString = scanner.next("(?i)(rock|paper|scissor)");
                 userChoice = stringToChoice(choiceAsString);
-                hasValidGuess = true;
             } catch (InputMismatchException e) {
                 scanner.next(); // Consume invalid input
                 System.out.println("You have to pick Rock, Paper or Scissor");
             }
-        }
+        } while(userChoice == null);
+
         return userChoice;
     }
 
