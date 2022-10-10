@@ -3,7 +3,8 @@ package rockpaperscissor;
 public abstract class Player {
 
     private int score;
-    private String name;
+    private final String name;
+
     Player(String name, int score) {
         this.name = name;
         this.score = score;
@@ -22,10 +23,8 @@ public abstract class Player {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public abstract RPSFist resolveFist() ;
+
+    public abstract Fist makeFist() ;
 
 }

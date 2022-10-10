@@ -6,15 +6,15 @@ public class AIPlayer extends Player {
     }
 
     @Override
-    public RPSFist resolveFist() {
+    public Fist makeFist() {
         int between0and2 = ((int) (Math.random() * 3));
         switch (between0and2) {
             case 0:
-                return RPSFist.ROCK;
+                return Fist.ROCK;
             case 1:
-                return RPSFist.PAPER;
+                return Fist.PAPER;
             case 2:
-                return RPSFist.SCISSOR;
+                return Fist.SCISSOR;
         }
         throw new RuntimeException("Bad programmer");
     }

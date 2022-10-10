@@ -10,9 +10,9 @@ public class HumanPlayer extends Player {
     }
 
     @Override
-    public RPSFist resolveFist() {
+    public Fist makeFist() {
         Scanner scanner = new Scanner(System.in);
-        RPSFist userChoice = null;
+        Fist userChoice = null;
         boolean hasValidGuess = false;
         while (!hasValidGuess) {
             System.out.print("Rock, Paper, Scissors: ");
@@ -28,14 +28,14 @@ public class HumanPlayer extends Player {
         return userChoice;
     }
 
-    private RPSFist stringToChoice(String choiceString) {
+    private Fist stringToChoice(String choiceString) {
         switch (choiceString.toLowerCase()) {
             case "rock":
-                return RPSFist.ROCK;
+                return Fist.ROCK;
             case "paper":
-                return RPSFist.PAPER;
+                return Fist.PAPER;
             case "scissor":
-                return RPSFist.SCISSOR;
+                return Fist.SCISSOR;
         }
         throw new IllegalArgumentException("Must be any of rock, paper and scissor");
     }

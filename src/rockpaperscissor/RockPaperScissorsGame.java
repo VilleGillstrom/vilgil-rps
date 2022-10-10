@@ -4,36 +4,46 @@ import java.util.*;
 
 public class RockPaperScissorsGame {
 
-    private Player playerA;
-    private Player playerB;
+    private final Player playerA;
+    private final Player playerB;
 
     RockPaperScissorsGame(Player playerA, Player playerB){
         this.playerA = playerA;
         this.playerB = playerB;
     }
     public void run() {
+        do {
+            Round round = new Round(playerA, playerB);
+            round.playRound();
 
-        boolean wantToPlay = true;
-        while (wantToPlay) {
-
-            RPSFist choiceA = playerA.resolveFist();
-            RPSFist choiceB = playerB.resolveFist();
-
-            // Evaluate if user won or lost against computer
-            RPSResult result = choiceA.competeWith(choiceB);
-
-            // Print result
-            String playerAName = playerA.getName();
-            String playerBName = playerB.getName();
-
-            System.out.printf("%s played %s, %s played %s, it's a %s for %s!\n", playerAName, choiceA, playerBName, choiceB, result, playerAName);
-
-            // Check if the users wants to play again
-            System.out.print("Want to play again?(y/n): ");
-            wantToPlay = fetchWantPlayAgain();
-        }
+            printRound(round);
+            printScore();
+        } while (userWantsToPlay());
 
         System.out.println("Bye!");
+    }
+
+    private void printScore() {
+        System.out.printf("%s score: %s, %s score: %s\n", playerA.getName(),playerA.getScore(), playerB.getName(),playerB.getScore());
+    }
+
+    private boolean userWantsToPlay() {
+        boolean wantToPlay;
+        System.out.print("Want to play again?(y/n): ");
+        wantToPlay = fetchWantPlayAgain();
+        return wantToPlay;
+    }
+
+    private void printRound( Round round)  {
+        String playerAName = round.playerA.getName();
+        String playerBName = round.playerB.getName();
+
+        Fist playerAFist = round.getPlayerAFist();
+        Fist playerBFist = round.getPlayerBFist();
+        RoundResult playerAResult = round.getPlayerAResult();
+
+        System.out.printf("%s played %s, %s played %s, it's a %s for %s!\n",
+                playerAName, playerAFist, playerBName, playerBFist, playerAResult, playerAName);
     }
 
 
