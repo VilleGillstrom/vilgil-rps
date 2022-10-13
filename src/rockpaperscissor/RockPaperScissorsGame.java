@@ -22,7 +22,11 @@ public class RockPaperScissorsGame {
             printScore();
 
         } while (!hasReachedEndScore() && userWantsToPlay());
+        printEndResult();
+        System.out.println("Bye!");
+    }
 
+    private void printEndResult() {
         if(playerA.getScore() == playerB.getScore()) {
             System.out.println("Game ends in a draw!");
         } else if(playerA.getScore() > playerB.getScore()) {
@@ -30,8 +34,6 @@ public class RockPaperScissorsGame {
         } else {
             System.out.printf("%s wins with a score of %s\n", playerB.getName(), playerB.getScore());
         }
-
-        System.out.println("Bye!");
     }
 
     private boolean hasReachedEndScore() {
