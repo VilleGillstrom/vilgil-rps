@@ -6,6 +6,8 @@ public class RockPaperScissorsGame {
 
     private final Player playerA;
     private final Player playerB;
+
+    // When either player rach this score, end the game
     private final int endAtScore;
 
     public RockPaperScissorsGame(Player playerA, Player playerB, int firstToScore){
