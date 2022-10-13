@@ -10,7 +10,7 @@ public class RockPaperScissorsGame {
     // When either player rach this score, end the game
     private final int endAtScore;
 
-    public RockPaperScissorsGame(Player playerA, Player playerB, int firstToScore){
+    public RockPaperScissorsGame(Player playerA, Player playerB, int firstToScore) {
         this.playerA = playerA;
         this.playerB = playerB;
         this.endAtScore = firstToScore;

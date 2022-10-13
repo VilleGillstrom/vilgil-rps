@@ -8,12 +8,12 @@ public class Round {
     private Fist fistA;
     private Fist fistB;
 
-    Round(Player playerA, Player playerB) {
+    protected Round(Player playerA, Player playerB) {
         this.playerA = playerA;
         this.playerB = playerB;
     }
 
-    void playRound()
+    protected void playRound()
     {
         makeFists();
         resolveScore();
