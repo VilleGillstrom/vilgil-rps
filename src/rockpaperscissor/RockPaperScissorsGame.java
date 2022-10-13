@@ -8,7 +8,7 @@ public class RockPaperScissorsGame {
     private final Player playerB;
     private final int endAtScore;
 
-    RockPaperScissorsGame(Player playerA, Player playerB, int firstToScore){
+    public RockPaperScissorsGame(Player playerA, Player playerB, int firstToScore){
         this.playerA = playerA;
         this.playerB = playerB;
         this.endAtScore = firstToScore;
