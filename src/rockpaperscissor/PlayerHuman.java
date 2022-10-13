@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class PlayerHuman extends Player {
 
-    PlayerHuman(String name, int score) {
+    public PlayerHuman(String name, int score) {
         super(name, score);
     }
 
